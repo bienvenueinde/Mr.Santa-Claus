@@ -1,0 +1,1671 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://scenes/Joueur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Level n°1_animations.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/TilesBGObjets/BG/BG.png" type="Texture" id=3]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Tree2.png" type="Texture" id=4]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Sign2.png" type="Texture" id=5]
+[ext_resource path="res://assets/TilesBGObjets/Objets/IceBox.png" type="Texture" id=6]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Tree1.png" type="Texture" id=7]
+[ext_resource path="res://levels/Level n°3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Stone.png" type="Texture" id=9]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Crate.png" type="Texture" id=10]
+[ext_resource path="res://scenes/piecedor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/pièce d'or/piece1.png" type="Texture" id=12]
+[ext_resource path="res://assets/Font/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://scenes/ecran_score.gd" type="Script" id=14]
+[ext_resource path="res://scenes/pause.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/ennemi.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Crystal.png" type="Texture" id=17]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Igloo.png" type="Texture" id=18]
+[ext_resource path="res://assets/TilesBGObjets/Objets/Sign1.png" type="Texture" id=19]
+[ext_resource path="res://assets/TilesBGObjets/Objets/SnowMan.png" type="Texture" id=20]
+[ext_resource path="res://assets/TilesBGObjets/Tiles/17.png" type="Texture" id=21]
+[ext_resource path="res://assets/TilesBGObjets/Tiles/18.png" type="Texture" id=22]
+[ext_resource path="res://assets/bgmusicsound/music.wav" type="AudioStream" id=23]
+
+
+
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 48 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 51 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 64, 35.3182 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 7808, 121.682 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0.807843, 0, 0.392157 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=6]
+size = 36
+outline_size = 2
+outline_color = Color( 1, 0.45098, 0, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+outline_size = 2
+outline_color = Color( 1, 0.45098, 0, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("transition/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath("transition/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Level n°2" type="Node2D"]
+position = Vector2( 0, 1.68176 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="mer" type="Node2D" parent="."]
+
+[node name="20" type="Sprite" parent="mer"]
+position = Vector2( 1992, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="21" type="Sprite" parent="mer"]
+position = Vector2( 2120, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="22" type="Sprite" parent="mer"]
+position = Vector2( 2248, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="23" type="Sprite" parent="mer"]
+position = Vector2( 2376, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="24" type="Sprite" parent="mer"]
+position = Vector2( 2504, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="25" type="Sprite" parent="mer"]
+position = Vector2( 2632, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="44" type="Sprite" parent="mer"]
+position = Vector2( 5672, 718.636 )
+texture = ExtResource( 21 )
+
+[node name="45" type="Sprite" parent="mer"]
+position = Vector2( 5800, 718.636 )
+texture = ExtResource( 21 )
+
+[node name="46" type="Sprite" parent="mer"]
+position = Vector2( 5928, 718.636 )
+texture = ExtResource( 21 )
+
+[node name="47" type="Sprite" parent="mer"]
+position = Vector2( 6056, 719.168 )
+texture = ExtResource( 21 )
+
+[node name="54" type="Sprite" parent="mer"]
+position = Vector2( 8608, 839.818 )
+texture = ExtResource( 21 )
+
+[node name="55" type="Sprite" parent="mer"]
+position = Vector2( 8736, 839.818 )
+texture = ExtResource( 21 )
+
+[node name="56" type="Sprite" parent="mer"]
+position = Vector2( 8864, 839.818 )
+texture = ExtResource( 21 )
+
+[node name="57" type="Sprite" parent="mer"]
+position = Vector2( 8992, 839.818 )
+texture = ExtResource( 21 )
+
+[node name="58" type="Sprite" parent="mer"]
+position = Vector2( 9120, 839.818 )
+texture = ExtResource( 21 )
+
+[node name="59" type="Sprite" parent="mer"]
+position = Vector2( 9240, 879.818 )
+texture = ExtResource( 21 )
+
+[node name="62" type="Sprite" parent="mer"]
+position = Vector2( 9368, 879.818 )
+texture = ExtResource( 21 )
+
+[node name="63" type="Sprite" parent="mer"]
+position = Vector2( 9496, 879.818 )
+texture = ExtResource( 21 )
+
+[node name="64" type="Sprite" parent="mer"]
+position = Vector2( 9624, 879.818 )
+texture = ExtResource( 21 )
+
+[node name="65" type="Sprite" parent="mer"]
+position = Vector2( 9760, 839.818 )
+texture = ExtResource( 21 )
+
+[node name="66" type="Sprite" parent="mer"]
+position = Vector2( 9888, 838.318 )
+texture = ExtResource( 21 )
+
+[node name="60" type="Sprite" parent="mer"]
+position = Vector2( 10792, 653.318 )
+texture = ExtResource( 21 )
+
+[node name="61" type="Sprite" parent="mer"]
+position = Vector2( 10848, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="67" type="Sprite" parent="mer"]
+position = Vector2( 10976, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="68" type="Sprite" parent="mer"]
+position = Vector2( 11104, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="69" type="Sprite" parent="mer"]
+position = Vector2( 11232, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="70" type="Sprite" parent="mer"]
+position = Vector2( 11360, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="71" type="Sprite" parent="mer"]
+position = Vector2( 11488, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="72" type="Sprite" parent="mer"]
+position = Vector2( 11616, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="73" type="Sprite" parent="mer"]
+position = Vector2( 11744, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="74" type="Sprite" parent="mer"]
+position = Vector2( 11872, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="75" type="Sprite" parent="mer"]
+position = Vector2( 12000, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="76" type="Sprite" parent="mer"]
+position = Vector2( 12128, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="77" type="Sprite" parent="mer"]
+position = Vector2( 12256, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="104" type="Sprite" parent="mer"]
+position = Vector2( 13108, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="105" type="Sprite" parent="mer"]
+position = Vector2( 13236, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="106" type="Sprite" parent="mer"]
+position = Vector2( 13364, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="107" type="Sprite" parent="mer"]
+position = Vector2( 13491.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="163" type="Sprite" parent="mer"]
+position = Vector2( 13619.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="164" type="Sprite" parent="mer"]
+position = Vector2( 13747.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="165" type="Sprite" parent="mer"]
+position = Vector2( 13875.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="166" type="Sprite" parent="mer"]
+position = Vector2( 14003, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="167" type="Sprite" parent="mer"]
+position = Vector2( 14131, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="168" type="Sprite" parent="mer"]
+position = Vector2( 14259, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="169" type="Sprite" parent="mer"]
+position = Vector2( 14386.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="170" type="Sprite" parent="mer"]
+position = Vector2( 14514.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="171" type="Sprite" parent="mer"]
+position = Vector2( 14642.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="172" type="Sprite" parent="mer"]
+position = Vector2( 14770.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="173" type="Sprite" parent="mer"]
+position = Vector2( 14898, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="174" type="Sprite" parent="mer"]
+position = Vector2( 15026, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="175" type="Sprite" parent="mer"]
+position = Vector2( 15153.5, 719.318 )
+texture = ExtResource( 21 )
+
+[node name="26" type="Sprite" parent="mer"]
+position = Vector2( 2760, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="27" type="Sprite" parent="mer"]
+position = Vector2( 2888, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="28" type="Sprite" parent="mer"]
+position = Vector2( 3016, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="29" type="Sprite" parent="mer"]
+position = Vector2( 3144, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="30" type="Sprite" parent="mer"]
+position = Vector2( 3272, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="32" type="Sprite" parent="mer"]
+position = Vector2( 3400, 726.318 )
+texture = ExtResource( 21 )
+
+[node name="108" type="Sprite" parent="mer"]
+position = Vector2( 584, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="109" type="Sprite" parent="mer"]
+position = Vector2( 712, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="110" type="Sprite" parent="mer"]
+position = Vector2( 840, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="111" type="Sprite" parent="mer"]
+position = Vector2( 968, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="112" type="Sprite" parent="mer"]
+position = Vector2( 1096, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="113" type="Sprite" parent="mer"]
+position = Vector2( 1224, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="114" type="Sprite" parent="mer"]
+position = Vector2( 1352, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="115" type="Sprite" parent="mer"]
+position = Vector2( 1480, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="116" type="Sprite" parent="mer"]
+position = Vector2( 1608, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="117" type="Sprite" parent="mer"]
+position = Vector2( 1736, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="118" type="Sprite" parent="mer"]
+position = Vector2( 1864, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="135" type="Sprite" parent="mer"]
+position = Vector2( -184, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="136" type="Sprite" parent="mer"]
+position = Vector2( -56, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="137" type="Sprite" parent="mer"]
+position = Vector2( 72, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="138" type="Sprite" parent="mer"]
+position = Vector2( 200, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="139" type="Sprite" parent="mer"]
+position = Vector2( 328, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="140" type="Sprite" parent="mer"]
+position = Vector2( 456, 719.136 )
+texture = ExtResource( 21 )
+
+[node name="79" type="Sprite" parent="mer"]
+position = Vector2( 10816, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="80" type="Sprite" parent="mer"]
+position = Vector2( 12352, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="91" type="Sprite" parent="mer"]
+position = Vector2( 12992, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="178" type="Sprite" parent="mer"]
+position = Vector2( 15168, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="18" type="Sprite" parent="mer"]
+position = Vector2( 3392, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="31" type="Sprite" parent="mer"]
+position = Vector2( 3392, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="43" type="Sprite" parent="mer"]
+position = Vector2( 6080, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="78" type="Sprite" parent="mer"]
+position = Vector2( 5568, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="17" type="Sprite" parent="mer"]
+position = Vector2( 6832, 719.168 )
+texture = ExtResource( 21 )
+
+[node name="48" type="Sprite" parent="mer"]
+position = Vector2( 6960, 719.168 )
+texture = ExtResource( 21 )
+
+[node name="49" type="Sprite" parent="mer"]
+position = Vector2( 7088, 718.636 )
+texture = ExtResource( 21 )
+
+[node name="50" type="Sprite" parent="mer"]
+position = Vector2( 7344, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="51" type="Sprite" parent="mer"]
+position = Vector2( 7600, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="52" type="Sprite" parent="mer"]
+position = Vector2( 7472, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="53" type="Sprite" parent="mer"]
+position = Vector2( 7216, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="130" type="Sprite" parent="mer"]
+position = Vector2( 7728, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="131" type="Sprite" parent="mer"]
+position = Vector2( 7856, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="132" type="Sprite" parent="mer"]
+position = Vector2( 7984, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="133" type="Sprite" parent="mer"]
+position = Vector2( 8112, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="134" type="Sprite" parent="mer"]
+position = Vector2( 8240, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="141" type="Sprite" parent="mer"]
+position = Vector2( 8368, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="142" type="Sprite" parent="mer"]
+position = Vector2( 8496, 718.818 )
+texture = ExtResource( 21 )
+
+[node name="143" type="Sprite" parent="mer"]
+position = Vector2( 6720, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="144" type="Sprite" parent="mer"]
+position = Vector2( 8512, 830.318 )
+texture = ExtResource( 22 )
+
+[node name="objets" type="Node2D" parent="."]
+position = Vector2( 0, 14.3182 )
+
+[node name="Tree_2" type="Sprite" parent="objets"]
+position = Vector2( 24, -9.68176 )
+texture = ExtResource( 4 )
+
+[node name="Sign_2" type="Sprite" parent="objets"]
+position = Vector2( 76, 81.3182 )
+texture = ExtResource( 5 )
+
+[node name="Tree_1" type="Sprite" parent="objets"]
+position = Vector2( 1900, 103.318 )
+texture = ExtResource( 7 )
+
+[node name="Tree_3" type="Sprite" parent="objets"]
+position = Vector2( 3592, 359 )
+texture = ExtResource( 7 )
+
+[node name="Tree_4" type="Sprite" parent="objets"]
+position = Vector2( 4840, 103 )
+texture = ExtResource( 4 )
+
+[node name="Tree_5" type="Sprite" parent="objets"]
+position = Vector2( 8631, 359 )
+texture = ExtResource( 4 )
+
+[node name="Tree_6" type="Sprite" parent="objets"]
+position = Vector2( 9077, 515 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Tree_7" type="Sprite" parent="objets"]
+position = Vector2( 9812, 615 )
+texture = ExtResource( 7 )
+
+[node name="Tree_8" type="Sprite" parent="objets"]
+position = Vector2( 10434, 615 )
+texture = ExtResource( 7 )
+
+[node name="Tree_9" type="Sprite" parent="objets"]
+position = Vector2( 6225, 487 )
+texture = ExtResource( 7 )
+
+[node name="Tree_10" type="Sprite" parent="objets"]
+position = Vector2( 4725, 615 )
+texture = ExtResource( 4 )
+
+[node name="Tree_11" type="Sprite" parent="objets"]
+position = Vector2( 11736, 231 )
+texture = ExtResource( 4 )
+
+[node name="Tree_12" type="Sprite" parent="objets"]
+position = Vector2( 12598, 487 )
+texture = ExtResource( 7 )
+
+[node name="Tree_13" type="Sprite" parent="objets"]
+position = Vector2( 13569, 231 )
+texture = ExtResource( 7 )
+
+[node name="Tree_14" type="Sprite" parent="objets"]
+position = Vector2( 15256, 487 )
+texture = ExtResource( 7 )
+
+[node name="Tree_15" type="Sprite" parent="objets"]
+position = Vector2( 14592, 359 )
+texture = ExtResource( 4 )
+
+[node name="Crystal" type="Sprite" parent="objets"]
+position = Vector2( 3576, -181 )
+texture = ExtResource( 17 )
+
+[node name="Igloo" type="Sprite" parent="objets"]
+position = Vector2( 4352, -240 )
+texture = ExtResource( 18 )
+
+[node name="Tree_16" type="Sprite" parent="objets"]
+position = Vector2( 4440, -283 )
+texture = ExtResource( 7 )
+
+[node name="Stone" type="Sprite" parent="objets"]
+position = Vector2( 5502, -181 )
+texture = ExtResource( 9 )
+
+[node name="SnowMan" type="Sprite" parent="objets"]
+position = Vector2( 8513, -246 )
+texture = ExtResource( 20 )
+
+[node name="Crystal2" type="Sprite" parent="objets"]
+position = Vector2( 8608, -181 )
+texture = ExtResource( 17 )
+
+[node name="IceBox" type="Sprite" parent="objets"]
+position = Vector2( 8752, -192 )
+texture = ExtResource( 6 )
+
+[node name="Tree_17" type="Sprite" parent="objets"]
+position = Vector2( 9624, -153 )
+texture = ExtResource( 7 )
+
+[node name="Stone2" type="Sprite" parent="objets"]
+position = Vector2( 9673, -53 )
+texture = ExtResource( 9 )
+
+[node name="Sign_3" type="Sprite" parent="objets"]
+position = Vector2( 9552, -61 )
+texture = ExtResource( 19 )
+
+[node name="Crate" type="Sprite" parent="objets"]
+position = Vector2( 9888, -64 )
+texture = ExtResource( 10 )
+
+[node name="Crate2" type="Sprite" parent="objets"]
+position = Vector2( 9888, -164 )
+texture = ExtResource( 10 )
+
+[node name="Crate3" type="Sprite" parent="objets"]
+position = Vector2( 9988, -65 )
+texture = ExtResource( 10 )
+
+[node name="Tree_18" type="Sprite" parent="objets"]
+position = Vector2( 10184, -153 )
+texture = ExtResource( 4 )
+
+[node name="Tree_19" type="Sprite" parent="objets"]
+position = Vector2( 10440, -152 )
+texture = ExtResource( 4 )
+
+[node name="Stone3" type="Sprite" parent="objets"]
+position = Vector2( 10312, -53 )
+texture = ExtResource( 9 )
+
+[node name="SnowMan2" type="Sprite" parent="objets"]
+position = Vector2( 12576, -246 )
+texture = ExtResource( 20 )
+
+[node name="Tree_20" type="Sprite" parent="objets"]
+position = Vector2( 12896, -281 )
+texture = ExtResource( 7 )
+
+[node name="Stone4" type="Sprite" parent="objets"]
+position = Vector2( 12648, -181 )
+texture = ExtResource( 9 )
+
+[node name="Sign_4" type="Sprite" parent="objets"]
+position = Vector2( 15261, 579 )
+texture = ExtResource( 19 )
+
+[node name="Crate4" type="Sprite" parent="objets"]
+position = Vector2( 14797, -65 )
+texture = ExtResource( 10 )
+
+[node name="IceBox2" type="Sprite" parent="objets"]
+position = Vector2( 14899, -65 )
+texture = ExtResource( 6 )
+
+[node name="IceBox3" type="Sprite" parent="objets"]
+position = Vector2( 2647, -192 )
+texture = ExtResource( 6 )
+
+[node name="Stone5" type="Sprite" parent="objets"]
+position = Vector2( 2864, -181 )
+texture = ExtResource( 9 )
+
+[node name="Stone6" type="Sprite" parent="objets"]
+position = Vector2( 14213, -181 )
+texture = ExtResource( 9 )
+
+[node name="Crystal3" type="Sprite" parent="objets"]
+position = Vector2( 5344, -181 )
+texture = ExtResource( 17 )
+
+[node name="obstacles" type="Node2D" parent="."]
+
+[node name="boite" type="Node2D" parent="obstacles"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 1200, 128.318 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 7780, 384.318 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D2"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D2"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 2171, 383.85 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D5"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D5"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 7679, 384.318 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D3"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D3"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 7780, 284.318 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D4"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D4"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 4864, -255.682 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D6"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D6"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 4746, 127.318 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D7"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D7"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 9993, 255.318 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D8"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D8"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="obstacles/boite"]
+position = Vector2( 10277, 255.318 )
+collision_layer = 32
+
+[node name="Crate" type="Sprite" parent="obstacles/boite/StaticBody2D9"]
+position = Vector2( 2536, 333.318 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="obstacles/boite/StaticBody2D9"]
+position = Vector2( 2536, 334.318 )
+shape = SubResource( 1 )
+
+[node name="glace" type="Node2D" parent="obstacles"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="obstacles/glace"]
+position = Vector2( -1448, -255.682 )
+collision_layer = 32
+
+[node name="IceBox" type="Sprite" parent="obstacles/glace/StaticBody2D"]
+position = Vector2( 4200, 589.318 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/glace/StaticBody2D"]
+position = Vector2( 4200, 593.318 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="obstacles/glace"]
+position = Vector2( 1923, -511.682 )
+collision_layer = 32
+
+[node name="IceBox" type="Sprite" parent="obstacles/glace/StaticBody2D2"]
+position = Vector2( 4200, 589.318 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/glace/StaticBody2D2"]
+position = Vector2( 4200, 593.318 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="obstacles/glace"]
+position = Vector2( 2023, -511.682 )
+collision_layer = 32
+
+[node name="IceBox" type="Sprite" parent="obstacles/glace/StaticBody2D3"]
+position = Vector2( 4200, 589.318 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/glace/StaticBody2D3"]
+position = Vector2( 4200, 593.318 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="obstacles/glace"]
+position = Vector2( 1971, -611.682 )
+collision_layer = 32
+
+[node name="IceBox" type="Sprite" parent="obstacles/glace/StaticBody2D4"]
+position = Vector2( 4200, 589.318 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/glace/StaticBody2D4"]
+position = Vector2( 4200, 593.318 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="obstacles/glace"]
+position = Vector2( 7323, -255.682 )
+collision_layer = 32
+
+[node name="IceBox" type="Sprite" parent="obstacles/glace/StaticBody2D5"]
+position = Vector2( 4200, 589.318 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/glace/StaticBody2D5"]
+position = Vector2( 4200, 593.318 )
+shape = SubResource( 2 )
+
+[node name="pierre" type="Node2D" parent="obstacles"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="obstacles/pierre"]
+position = Vector2( 3704, -384.682 )
+collision_layer = 32
+
+[node name="Stone" type="Sprite" parent="obstacles/pierre/StaticBody2D"]
+position = Vector2( 1176, 602.318 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/pierre/StaticBody2D"]
+position = Vector2( 1176, 605.318 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="obstacles/pierre"]
+position = Vector2( 3958, 127.318 )
+collision_layer = 32
+
+[node name="Stone" type="Sprite" parent="obstacles/pierre/StaticBody2D2"]
+position = Vector2( 1176, 602.318 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/pierre/StaticBody2D2"]
+position = Vector2( 1176, 605.318 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="obstacles/pierre"]
+position = Vector2( 672, -384.682 )
+collision_layer = 32
+
+[node name="Stone" type="Sprite" parent="obstacles/pierre/StaticBody2D3"]
+position = Vector2( 1176, 602.318 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/pierre/StaticBody2D3"]
+position = Vector2( 1176, 605.318 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="obstacles/pierre"]
+position = Vector2( 5503, -0.681763 )
+collision_layer = 32
+
+[node name="Stone" type="Sprite" parent="obstacles/pierre/StaticBody2D4"]
+position = Vector2( 1176, 602.318 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/pierre/StaticBody2D4"]
+position = Vector2( 1176, 605.318 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="obstacles/pierre"]
+position = Vector2( 7632, -129.364 )
+collision_layer = 32
+
+[node name="Stone" type="Sprite" parent="obstacles/pierre/StaticBody2D5"]
+position = Vector2( 1176, 602.318 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/pierre/StaticBody2D5"]
+position = Vector2( 1176, 605.318 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="obstacles/pierre"]
+position = Vector2( 12592, -256.682 )
+collision_layer = 32
+
+[node name="Stone" type="Sprite" parent="obstacles/pierre/StaticBody2D6"]
+position = Vector2( 1176, 602.318 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/pierre/StaticBody2D6"]
+position = Vector2( 1176, 605.318 )
+shape = SubResource( 3 )
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="pause" parent="Pause" instance=ExtResource( 15 )]
+margin_top = 1.68176
+margin_bottom = 1.68176
+
+[node name="ennemis" type="Node2D" parent="."]
+
+[node name="ennemi" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 612, 127.318 )
+direction = 1
+
+[node name="ennemi2" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 792, 127.318 )
+
+[node name="ennemi3" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 1024, -1.68176 )
+collision_mask = 35
+direction = 1
+
+[node name="ennemi4" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 1664, 126.318 )
+collision_mask = 35
+
+[node name="ennemi5" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 1984, 126.318 )
+direction = 1
+
+[node name="ennemi6" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 2224, 126.318 )
+
+[node name="ennemi7" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 2644, 254.318 )
+direction = 1
+
+[node name="ennemi8" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 2880, 254.318 )
+
+[node name="ennemi9" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 3392, 381.85 )
+direction = 1
+
+[node name="ennemi10" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 3624, 381.85 )
+
+[node name="ennemi11" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 3872, 382.318 )
+direction = 1
+
+[node name="ennemi12" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 4096, 510.318 )
+
+[node name="ennemi13" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 4288, 510.318 )
+direction = 1
+
+[node name="ennemi14" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 4416, 639.136 )
+
+[node name="ennemi15" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 4544, 634.318 )
+direction = 1
+
+[node name="ennemi16" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 4834, 639.136 )
+
+[node name="ennemi17" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 4992, 638.318 )
+direction = 1
+
+[node name="ennemi18" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 5296, 638.318 )
+
+[node name="ennemi19" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 5024, 127.318 )
+direction = 1
+
+[node name="ennemi20" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 5448, 385.318 )
+
+[node name="ennemi21" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 5568, 384.318 )
+direction = 1
+
+[node name="ennemi22" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6108, 510.318 )
+
+[node name="ennemi23" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6273.5, 511.136 )
+direction = 1
+
+[node name="ennemi24" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6419.5, 513.318 )
+
+[node name="ennemi25" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6552, 513.318 )
+direction = 1
+
+[node name="ennemi26" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6592, 256.636 )
+
+[node name="ennemi27" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6720, 256.318 )
+direction = 1
+
+[node name="ennemi28" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6848, -129.364 )
+
+[node name="ennemi29" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 6984, -129.364 )
+direction = 1
+
+[node name="ennemi30" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 7552, 28.1362 )
+
+[node name="ennemi31" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 7140.5, 384.318 )
+direction = 1
+
+[node name="ennemi32" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 7424, 385.318 )
+
+[node name="ennemi33" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 7576, 381.85 )
+direction = 1
+
+[node name="ennemi34" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 8000, 256.318 )
+
+[node name="ennemi35" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 8128, 254.318 )
+direction = 1
+
+[node name="ennemi36" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 8512, 384.636 )
+
+[node name="ennemi37" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 8688, 383.818 )
+direction = 1
+
+[node name="ennemi38" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 9024, 510.318 )
+
+[node name="ennemi39" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 9152, 511.954 )
+direction = 1
+
+[node name="ennemi40" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 9664, 640.636 )
+
+[node name="ennemi41" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 9792, 639.136 )
+direction = 1
+
+[node name="ennemi42" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 9920, 642.668 )
+
+[node name="ennemi43" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 10048, 642.318 )
+direction = 1
+
+[node name="ennemi44" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 10432, 639.136 )
+
+[node name="ennemi45" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 10560, 638.318 )
+direction = 1
+
+[node name="ennemi46" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 10688, 383.818 )
+
+[node name="ennemi47" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 10816, 382.136 )
+direction = 1
+
+[node name="ennemi48" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 11392, 255.318 )
+
+[node name="ennemi49" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 11648, 255.318 )
+direction = 1
+
+[node name="ennemi50" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 11816, 258.318 )
+
+[node name="ennemi51" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 12400, 511.136 )
+direction = 1
+
+[node name="ennemi52" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 12672, 511.136 )
+
+[node name="ennemi53" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 12952, 512.636 )
+direction = 1
+
+[node name="ennemi54" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 13376, 254.318 )
+
+[node name="ennemi55" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 13504, 254.318 )
+direction = 1
+
+[node name="ennemi56" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 13632, 254.318 )
+
+[node name="ennemi57" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 13888, 258.318 )
+direction = 1
+
+[node name="ennemi58" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 14016, 255.318 )
+
+[node name="ennemi59" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 14592, 383.818 )
+direction = 1
+
+[node name="ennemi60" parent="ennemis" instance=ExtResource( 16 )]
+position = Vector2( 15256, 513.318 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -65539, 4, 0, -3, 4, 0, -65516, 20, 0, -65515, 19, 0, -65514, 21, 0, -65509, 20, 0, -65508, 21, 0, -65504, 20, 0, -65503, 19, 0, -65502, 19, 0, -65501, 21, 0, -65495, 20, 0, -65494, 19, 0, -65493, 21, 0, -65471, 20, 0, -65470, 19, 0, -65469, 19, 0, -65468, 19, 0, -65467, 21, 0, -65439, 20, 0, -65438, 19, 0, -65437, 19, 0, -65436, 19, 0, -65435, 21, 0, -65426, 20, 0, -65425, 21, 0, 65533, 4, 0, 53, 20, 0, 54, 21, 0, 74, 20, 0, 75, 19, 0, 76, 19, 0, 77, 19, 0, 78, 19, 0, 79, 19, 0, 80, 19, 0, 81, 21, 0, 115, 20, 0, 116, 21, 0, 120, 4, 0, 131070, 0, 0, 131071, 1, 0, 65536, 2, 0, 65543, 0, 0, 65544, 2, 0, 65583, 20, 0, 65584, 19, 0, 65585, 21, 0, 65593, 20, 0, 65594, 19, 0, 65595, 21, 0, 65656, 4, 0, 196606, 11, 0, 196607, 8, 0, 131072, 12, 0, 131076, 0, 0, 131077, 1, 0, 131078, 6, 0, 131079, 7, 0, 131080, 5, 0, 131084, 20, 0, 131085, 19, 0, 131086, 19, 0, 131087, 19, 0, 131088, 19, 0, 131089, 21, 0, 131109, 20, 0, 131110, 19, 0, 131111, 21, 0, 131192, 4, 0, 196612, 11, 0, 196613, 8, 0, 196614, 8, 0, 196615, 8, 0, 196616, 12, 0, 196628, 20, 0, 196629, 19, 0, 196630, 21, 0, 196659, 20, 0, 196660, 21, 0, 196670, 20, 0, 196671, 21, 0, 196696, 0, 0, 196697, 1, 0, 196698, 1, 0, 196699, 1, 0, 196700, 1, 0, 196701, 2, 0, 196712, 20, 0, 196713, 19, 0, 196714, 19, 0, 196715, 19, 0, 196716, 19, 0, 196717, 21, 0, 196728, 4, 0, 262170, 0, 0, 262171, 1, 0, 262172, 1, 0, 262173, 1, 0, 262174, 2, 0, 262186, 0, 0, 262187, 2, 0, 262199, 20, 0, 262200, 19, 0, 262201, 19, 0, 262202, 19, 0, 262203, 21, 0, 262210, 0, 0, 262211, 1, 0, 262212, 1, 0, 262213, 2, 0, 262227, 0, 0, 262228, 2, 0, 262232, 11, 0, 262233, 8, 0, 262234, 8, 0, 262235, 8, 0, 262236, 8, 0, 262237, 12, 0, 262257, 20, 0, 262258, 21, 0, 262264, 4, 0, 327706, 3, 0, 327707, 4, 0, 327708, 4, 0, 327709, 4, 0, 327710, 9, 0, 327711, 10, 0, 327712, 1, 0, 327713, 2, 0, 327722, 3, 0, 327723, 5, 0, 327727, 0, 0, 327728, 1, 0, 327729, 1, 0, 327730, 1, 0, 327731, 1, 0, 327732, 2, 0, 327746, 3, 0, 327747, 4, 0, 327748, 4, 0, 327749, 9, 0, 327750, 10, 0, 327751, 2, 0, 327763, 3, 0, 327764, 5, 0, 327776, 0, 0, 327777, 1, 0, 327778, 1, 0, 327779, 1, 0, 327780, 1, 0, 327781, 2, 0, 327798, 0, 0, 327799, 1, 0, 458750, 23, 0, 458751, 23, 0, 393216, 23, 0, 393217, 23, 0, 393218, 23, 0, 393219, 23, 0, 393220, 23, 0, 393221, 23, 0, 393222, 23, 0, 393223, 23, 0, 393224, 23, 0, 393225, 23, 0, 393226, 23, 0, 393227, 23, 0, 393228, 23, 0, 393229, 23, 0, 393230, 23, 0, 393231, 23, 0, 393232, 23, 0, 393233, 23, 0, 393234, 23, 0, 393235, 23, 0, 393236, 23, 0, 393237, 23, 0, 393238, 23, 0, 393239, 23, 0, 393240, 23, 0, 393241, 23, 0, 393242, 3, 0, 393243, 4, 0, 393244, 4, 0, 393245, 4, 0, 393246, 4, 0, 393247, 4, 0, 393248, 4, 0, 393249, 9, 0, 393250, 10, 0, 393251, 1, 0, 393252, 1, 0, 393253, 1, 0, 393254, 1, 0, 393255, 1, 0, 393256, 1, 0, 393257, 6, 0, 393258, 7, 0, 393259, 5, 0, 393260, 23, 0, 393261, 23, 0, 393262, 23, 0, 393263, 3, 0, 393264, 4, 0, 393265, 4, 0, 393266, 4, 0, 393267, 4, 0, 393268, 5, 0, 393269, 23, 0, 393270, 23, 0, 393271, 23, 0, 393272, 23, 0, 393273, 23, 0, 393274, 23, 0, 393275, 23, 0, 393276, 23, 0, 393277, 23, 0, 393278, 23, 0, 393279, 23, 0, 393280, 23, 0, 393281, 23, 0, 393282, 3, 0, 393283, 4, 0, 393284, 4, 0, 393285, 4, 0, 393286, 4, 0, 393287, 5, 0, 393291, 0, 0, 393292, 1, 0, 393293, 1, 0, 393294, 1, 0, 393295, 1, 0, 393296, 1, 0, 393297, 1, 0, 393298, 6, 0, 393299, 7, 0, 393300, 5, 0, 393301, 23, 0, 393302, 23, 0, 393303, 23, 0, 393304, 23, 0, 393305, 23, 0, 393306, 23, 0, 393307, 23, 0, 393308, 23, 0, 393309, 23, 0, 393310, 23, 0, 393311, 23, 0, 393312, 3, 0, 393313, 4, 0, 393314, 4, 0, 393315, 4, 0, 393316, 4, 0, 393317, 5, 0, 393318, 23, 0, 393319, 23, 0, 393320, 23, 0, 393321, 23, 0, 393322, 23, 0, 393323, 23, 0, 393324, 23, 0, 393325, 23, 0, 393326, 23, 0, 393327, 23, 0, 393328, 23, 0, 393329, 23, 0, 393330, 23, 0, 393331, 23, 0, 393332, 23, 0, 393333, 23, 0, 393334, 3, 0, 393335, 4, 0 )
+
+[node name="Joueur" parent="." instance=ExtResource( 1 )]
+position = Vector2( -90, -135.364 )
+collision_mask = 30
+
+[node name="Camera2D" type="Camera2D" parent="Joueur"]
+current = true
+limit_left = -250
+limit_top = -223
+limit_right = 15350
+limit_bottom = 896
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+editor_draw_limits = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2250, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -256, -224 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 2984, 1062.32 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 4552, -48.0017 )
+shape = SubResource( 4 )
+
+[node name="ecran_score" type="CanvasLayer" parent="."]
+script = ExtResource( 14 )
+next_scene = ExtResource( 8 )
+
+[node name="ecran_score" type="Panel" parent="ecran_score"]
+margin_left = 48.0
+margin_top = 32.0
+margin_right = 224.0
+margin_bottom = 120.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="or" type="TextureRect" parent="ecran_score"]
+margin_left = 51.0
+margin_top = 50.0
+margin_right = 107.0
+margin_bottom = 106.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fois" type="Label" parent="ecran_score"]
+margin_left = 102.0
+margin_top = 59.0
+margin_right = 142.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 0.807843, 0, 1 )
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="ecran_score"]
+margin_left = 132.0
+margin_top = 50.0
+margin_right = 192.0
+margin_bottom = 109.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 0.807843, 0, 1 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transition" type="CanvasLayer" parent="ecran_score"]
+
+[node name="ColorRect" type="ColorRect" parent="ecran_score/transition"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.68176
+margin_bottom = 1.68176
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ecran_score"]
+autoplay = "start"
+anims/end = SubResource( 8 )
+anims/start = SubResource( 9 )
+
+[node name="piece_d\'or" type="Node2D" parent="."]
+
+[node name="or" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 64, -1.68176 )
+
+[node name="or2" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 704, 127.318 )
+
+[node name="or3" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 1024, -1.68176 )
+
+[node name="or4" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 1151, -65.6818 )
+
+[node name="or5" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 1280, -129.364 )
+
+[node name="or6" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 1408, -65.6818 )
+
+[node name="or7" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 1536, -3.682 )
+
+[node name="or8" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 1664, 126.318 )
+
+[node name="or9" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 1856, 127.318 )
+
+[node name="or10" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2112, 129.318 )
+
+[node name="or11" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2368, -1.68176 )
+
+[node name="or12" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2496, 62.3182 )
+
+[node name="or13" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2624, 128.318 )
+
+[node name="or14" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2644, 255.318 )
+
+[node name="or15" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2752, 174.318 )
+
+[node name="or16" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2880, 257 )
+
+[node name="or17" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3008, 218.318 )
+
+[node name="or18" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3136, 155.318 )
+
+[node name="or19" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3264, 90.3182 )
+
+[node name="or20" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3392, 154.318 )
+
+[node name="or21" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3520, 218.318 )
+
+[node name="or22" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3520, 382.318 )
+
+[node name="or23" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3736, 290.4 )
+
+[node name="or24" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 3872, 385.318 )
+
+[node name="or25" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 4160, 511.954 )
+
+[node name="or26" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 4512, 640.636 )
+
+[node name="or27" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 4708, 562.636 )
+
+[node name="or28" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 4928, 634.318 )
+
+[node name="or29" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 5134, 563.6 )
+
+[node name="or30" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 5296, 642.318 )
+
+[node name="or31" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 5503, 385.318 )
+
+[node name="or32" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 5024, 129.318 )
+
+[node name="or33" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 5632, 254.318 )
+
+[node name="or34" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 5760, 190.318 )
+
+[node name="or35" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 5888, 258.318 )
+
+[node name="or36" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 6016, 319.975 )
+
+[node name="or37" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 6208, 510.318 )
+
+[node name="or38" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 6496, 513.318 )
+
+[node name="or39" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 6656, 257.636 )
+
+[node name="or40" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 6171, -193.682 )
+
+[node name="or41" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 6912, -129.364 )
+
+[node name="or42" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 7282, 311.975 )
+
+[node name="or43" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 7488, 384.636 )
+
+[node name="or44" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 7400, -65.6818 )
+
+[node name="or45" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 8064, 256.318 )
+
+[node name="or46" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 8256, 190.318 )
+
+[node name="or47" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 8420, 126.318 )
+
+[node name="or48" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 8576, 190.318 )
+
+[node name="or49" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 8616, 383.818 )
+
+[node name="or50" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 8808, 319.975 )
+
+[node name="or51" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 9088, 511.136 )
+
+[node name="or52" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 9280, 450.318 )
+
+[node name="or53" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 9408, 384.136 )
+
+[node name="or54" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 9536, 450.318 )
+
+[node name="or55" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 9664, 513.318 )
+
+[node name="or56" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 9728, 639.136 )
+
+[node name="or57" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 9984, 640.136 )
+
+[node name="or58" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 10316, 447.625 )
+
+[node name="or59" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 10496, 638.318 )
+
+[node name="or60" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 10752, 384.136 )
+
+[node name="or61" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 10944, 319.975 )
+
+[node name="or62" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 11072, 254.318 )
+
+[node name="or63" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 11200, 190.318 )
+
+[node name="or64" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 11392, 255.318 )
+
+[node name="or65" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 11528, 178.636 )
+
+[node name="or66" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 11712, 254.318 )
+
+[node name="or67" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 11968, 190.318 )
+
+[node name="or68" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12096, 127.318 )
+
+[node name="or69" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12224, 190.318 )
+
+[node name="or70" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12352, 256.636 )
+
+[node name="or71" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12416, 510.318 )
+
+[node name="or72" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12672, 513.318 )
+
+[node name="or73" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12952, 510.318 )
+
+[node name="or74" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 13048, 447.625 )
+
+[node name="or75" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 13184, 318.318 )
+
+[node name="or76" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 13312, 190.318 )
+
+[node name="or77" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 13440, 250.318 )
+
+[node name="or78" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 13632, 254.318 )
+
+[node name="or79" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 13760, 178.636 )
+
+[node name="or80" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 13948, 255.318 )
+
+[node name="or81" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 14144, 256.318 )
+
+[node name="or82" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 14272, 190.318 )
+
+[node name="or83" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 14408, 254.318 )
+
+[node name="or84" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 14528, 319.975 )
+
+[node name="or85" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 14592, 384.636 )
+
+[node name="or86" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 14784, 381.85 )
+
+[node name="or87" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 14912, 319.975 )
+
+[node name="or88" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 15040, 390.2 )
+
+[node name="or89" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 15168, 450.318 )
+
+[node name="or90" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 15256, 519.486 )
+
+[node name="or91" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 188, -1.68176 )
+
+[node name="or92" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 320, -65.6818 )
+
+[node name="or93" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 448, -129.364 )
+
+[node name="or94" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 575.8, -65.6818 )
+
+[node name="or95" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 704, -3.682 )
+
+[node name="or96" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 2240, 62.3182 )
+
+[node name="or97" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 6144, 383.818 )
+
+[node name="or98" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 10316, 318.318 )
+
+[node name="or99" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12528, 412.636 )
+
+[node name="or100" parent="piece_d\'or" instance=ExtResource( 11 )]
+position = Vector2( 12813, 412.636 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+autoplay = true
+[connection signal="body_entered" from="Area2D" to="Joueur" method="_on_Area2D_body_entered"]
+[connection signal="score" from="piece_d'or/or" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or2" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or3" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or4" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or5" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or6" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or7" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or8" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or9" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or10" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or11" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or12" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or13" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or14" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or15" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or16" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or17" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or18" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or19" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or20" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or21" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or22" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or23" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or24" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or25" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or26" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or27" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or28" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or29" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or30" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or31" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or32" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or33" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or34" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or35" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or36" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or37" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or38" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or39" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or40" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or41" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or42" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or43" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or44" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or45" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or46" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or47" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or48" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or49" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or50" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or51" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or52" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or53" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or54" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or55" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or56" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or57" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or58" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or59" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or60" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or61" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or62" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or63" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or64" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or65" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or66" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or67" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or68" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or69" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or70" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or71" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or72" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or73" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or74" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or75" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or76" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or77" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or78" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or79" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or80" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or81" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or82" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or83" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or84" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or85" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or86" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or87" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or88" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or89" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or90" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or91" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or92" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or93" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or94" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or95" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or96" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or97" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or98" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or99" to="ecran_score" method="_on_score"]
+[connection signal="score" from="piece_d'or/or100" to="ecran_score" method="_on_score"]

@@ -1,0 +1,123 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://assets/Joueur/Run/Run (9).png" type="Texture" id=1]
+[ext_resource path="res://assets/Joueur/Jump/Jump (8).png" type="Texture" id=2]
+[ext_resource path="res://assets/Joueur/Run/Run (5).png" type="Texture" id=3]
+[ext_resource path="res://assets/Joueur/Run/Run (6).png" type="Texture" id=4]
+[ext_resource path="res://assets/Joueur/Jump/Jump (7).png" type="Texture" id=5]
+[ext_resource path="res://assets/Joueur/Jump/Jump (10).png" type="Texture" id=6]
+[ext_resource path="res://assets/Joueur/Idle/Idle (1).png" type="Texture" id=7]
+[ext_resource path="res://assets/Joueur/Jump/Jump (6).png" type="Texture" id=8]
+[ext_resource path="res://assets/Joueur/Run/Run (3).png" type="Texture" id=9]
+[ext_resource path="res://assets/Joueur/Jump/Jump (12).png" type="Texture" id=10]
+[ext_resource path="res://assets/Joueur/Run/Run (11).png" type="Texture" id=11]
+[ext_resource path="res://assets/Joueur/Jump/Jump (11).png" type="Texture" id=12]
+[ext_resource path="res://assets/Joueur/Jump/Jump (15).png" type="Texture" id=13]
+[ext_resource path="res://assets/Joueur/Jump/Jump (16).png" type="Texture" id=14]
+[ext_resource path="res://assets/Joueur/Jump/Jump (14).png" type="Texture" id=15]
+[ext_resource path="res://assets/Joueur/Jump/Jump (9).png" type="Texture" id=16]
+[ext_resource path="res://assets/Joueur/Run/Run (8).png" type="Texture" id=17]
+[ext_resource path="res://assets/Joueur/Jump/Jump (4).png" type="Texture" id=18]
+[ext_resource path="res://assets/Joueur/Jump/Jump (13).png" type="Texture" id=19]
+[ext_resource path="res://assets/Joueur/Run/Run (4).png" type="Texture" id=20]
+[ext_resource path="res://assets/Joueur/Run/Run (10).png" type="Texture" id=21]
+[ext_resource path="res://assets/Joueur/Run/Run (1).png" type="Texture" id=22]
+[ext_resource path="res://assets/Joueur/Jump/Jump (1).png" type="Texture" id=23]
+[ext_resource path="res://assets/Joueur/Jump/Jump (2).png" type="Texture" id=24]
+[ext_resource path="res://assets/Joueur/Run/Run (7).png" type="Texture" id=25]
+[ext_resource path="res://assets/Joueur/Jump/Jump (3).png" type="Texture" id=26]
+[ext_resource path="res://assets/Joueur/Jump/Jump (5).png" type="Texture" id=27]
+[ext_resource path="res://assets/Joueur/Run/Run (2).png" type="Texture" id=28]
+[ext_resource path="res://assets/bgmusicsound/jump.wav" type="AudioStream" id=29]
+
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+var velocite = Vector2(0,0)
+var score = 0
+const VITESSE = 500
+const SAUT = -1050
+const GRAVITE = 35
+
+func _physics_process(delta):
+	if Input.is_action_pressed(\"DROITE\"):
+		velocite.x = VITESSE
+		$Sprite.play(\"run\")
+		$Sprite.flip_h = false
+	elif Input.is_action_pressed(\"GAUCHE\"):
+		velocite.x = -VITESSE
+		$Sprite.play(\"run\")
+		$Sprite.flip_h = true
+	else:
+		$Sprite.play(\"idle\")
+	
+	if not is_on_floor():
+		$Sprite.play(\"saut\")
+	
+	velocite.y = velocite.y + GRAVITE
+	
+	if Input.is_action_just_pressed(\"SAUT\") and is_on_floor():
+		velocite.y = SAUT
+		$AudioStreamPlayer.play()
+	
+	velocite = move_and_slide(velocite, Vector2.UP)
+	
+	velocite.x = lerp(velocite.x, 0, 0.2)
+
+
+func _on_Area2D_body_entered(body):
+	$Timer.start()
+	
+func _on_Timer_timeout():
+	get_tree().reload_current_scene()
+	
+
+func rebond():
+	velocite.y = SAUT * 0.7
+
+
+"
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "saut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 9 ), ExtResource( 28 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 36.1761
+height = 62.6486
+
+[node name="Joueur" type="KinematicBody2D"]
+script = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 2 )
+animation = "idle"
+speed_scale = 3.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -20.4459, -2.74342 )
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
